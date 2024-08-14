@@ -1,6 +1,11 @@
 package com.jah.demoapp.sb_demo_app.product;
 
+import lombok.Getter;
+import lombok.Setter;
+
 // product class
+@Getter
+@Setter
 public class Product {
 
     private Long id; // product id
