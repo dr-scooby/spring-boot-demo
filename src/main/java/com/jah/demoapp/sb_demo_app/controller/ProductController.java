@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/products")
 public class ProductController {
 
+    // url: http://localhost:9192/products/hello
     @GetMapping("/hello")
     public String sayHello(){
         return "Hello jah";
