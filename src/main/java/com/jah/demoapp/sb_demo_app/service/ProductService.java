@@ -22,7 +22,8 @@ public class ProductService {
             new Product(4L, "iPhone", 900, "iPhone 10x smart phone"),
             new Product(5L, "Dell", 550, "laptop"),
             new Product(6L, "HP", 750, "Laptop"),
-            new Product(7L, "Lenovo", 850, "Laptop")
+            new Product(7L, "Lenovo", 850, "Laptop"),
+            new Product(8L, "Lenovo", 150, "Laptop x390")
     );
 
 
