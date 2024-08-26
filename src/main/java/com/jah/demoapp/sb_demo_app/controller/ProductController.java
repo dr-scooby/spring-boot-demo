@@ -17,6 +17,7 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
 
+    // injection
     private final ProductService prodservice; // will be initialized by the lombok RequiredArgsConstructor
 
 
