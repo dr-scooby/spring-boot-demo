@@ -3,6 +3,9 @@ package com.jah.demoapp.sb_demo_app.service;
 // handle all the logic for Product
 
 import com.jah.demoapp.sb_demo_app.model.Product;
+import com.jah.demoapp.sb_demo_app.repository.ProductRepository;
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +14,13 @@ import java.util.List;
 
 // make it a service, use as injection class to use anywhere
 @Service
+@RequiredArgsConstructor
 public class ProductService {
 
-    // list of products
+    // using the JpaRepository to interact with the DB
+    private final ProductRepository prodrepos;
+
+    // list of products, testing only, move to DB
     private List<Product> products =  Arrays.asList(
             new Product(1L, "Samsung", 100, "smart phone"),
 
@@ -28,7 +35,15 @@ public class ProductService {
 
 
 
+    // getProducts from the JpaRepository, DB
     public List<Product> getProducts(){
-        return products;
+        return prodrepos.findAll();
+    }
+
+
+    // call the postconstruct to run this method when this class is created to save data, testing only.
+    @PostConstruct
+    public List<Product> saveProduct(){
+        return prodrepos.saveAll(products);
     }
 }
