@@ -15,7 +15,7 @@ import java.util.List;
 // make it a service, use as injection class to use anywhere
 @Service
 @RequiredArgsConstructor
-public class ProductService {
+public class ProductService implements IProductService{
 
     // using the JpaRepository to interact with the DB
     private final ProductRepository prodrepos;
@@ -36,10 +36,29 @@ public class ProductService {
     );
 
 
+    @Override
+    public Product addProduct(Product p) {
+        return null;
+    }
+
+    @Override
+    public Product updatedProduct(Product p, Long prodId) {
+        return null;
+    }
+
+    @Override
+    public void deleteProduct(Long prodId) {
+
+    }
 
     // getProducts from the JpaRepository, DB
     public List<Product> getProducts(){
         return prodrepos.findAll();
+    }
+
+    @Override
+    public Product getProductById(Long id) {
+        return null;
     }
 
 
