@@ -7,8 +7,8 @@ import java.util.List;
 public interface IProductService {
 
     void addProduct(Product p);
-    void updatedProduct(Product p);
-    void deleteProduct(Product p);
+    void updatedProduct(Product p, Long prodId);
+    void deleteProduct(Long prodId);
     List<Product> getProducts();
-    Product getProduct(int id);
+    Product getProductById(Long id);
 }
