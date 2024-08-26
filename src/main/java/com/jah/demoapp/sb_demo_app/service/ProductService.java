@@ -30,7 +30,9 @@ public class ProductService {
             new Product(5L, "Dell", 550, "laptop"),
             new Product(6L, "HP", 750, "Laptop"),
             new Product(7L, "Lenovo", 850, "Laptop"),
-            new Product(8L, "Lenovo", 150, "Laptop x390")
+            new Product(8L, "Lenovo", 150, "Laptop x390"),
+            new Product(9L, "Lenovo", 150, "Laptop T15"),
+            new Product(10L, "Lenovo", 150, "Laptop T14")
     );
 
 
