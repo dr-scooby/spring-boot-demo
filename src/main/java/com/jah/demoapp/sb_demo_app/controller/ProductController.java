@@ -45,6 +45,7 @@ public class ProductController {
 
     }
 
+    // http://localhost:9192/products/add
     @PostMapping("/add")
     public Product addProduct(@RequestBody Product p){
         return prodservice.addProduct(p);
