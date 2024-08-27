@@ -36,35 +36,49 @@ public class ProductService implements IProductService{
     );
 
 
+   // add product to the DB
     @Override
     public Product addProduct(Product p) {
-        return null;
+        return prodrepos.save(p);
     }
 
+    // updated the product with new info
     @Override
     public Product updatedProduct(Product p, Long prodId) {
+        // check if product is in the DB:
+        if(prodrepos.findById(prodId).isPresent()){
+            return prodrepos.save(p);
+        }
         return null;
     }
 
+    // delete by Id
     @Override
     public void deleteProduct(Long prodId) {
+
+        // check if exists, then delete:
+        if(prodrepos.findById(prodId).isPresent()){
+            prodrepos.deleteById(prodId);
+        }
+
 
     }
 
     // getProducts from the JpaRepository, DB
+    @Override
     public List<Product> getProducts(){
         return prodrepos.findAll();
     }
 
     @Override
     public Product getProductById(Long id) {
-        return null;
+        return prodrepos.findById(id).orElseThrow(null);
     }
 
 
     // call the postconstruct to run this method when this class is created to save data, testing only.
-    @PostConstruct
+    /*@PostConstruct
     public List<Product> saveProduct(){
         return prodrepos.saveAll(products);
-    }
+    }*/
 }
