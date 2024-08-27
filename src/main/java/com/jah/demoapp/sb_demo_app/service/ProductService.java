@@ -46,10 +46,20 @@ public class ProductService implements IProductService{
     @Override
     public Product updatedProduct(Product p, Long prodId) {
         // check if product is in the DB:
-        if(prodrepos.findById(prodId).isPresent()){
-            return prodrepos.save(p);
-        }
-        return null;
+        // update with info:
+        return prodrepos.findById(prodId).map(oldProduct ->{
+                oldProduct.setName(p.getName());
+                oldProduct.setDescription(p.getDescription());
+                oldProduct.setPrice(p.getPrice());
+                oldProduct.setQty(p.getQty());
+                return prodrepos.save(oldProduct);
+        }).orElseThrow( () -> new RuntimeException("product not found with id: " + prodId) );
+
+        // this block works as well
+        //if(prodrepos.findById(prodId).isPresent()){
+         //   return prodrepos.save(p);
+       // }
+        //return null;
     }
 
     // delete by Id
